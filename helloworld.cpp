@@ -1,12 +1,7 @@
 #include <iostream>
 
-int main(void)
+void ascii(int max)
 {
-	int max = 1;
-	std::cout << "Generade ASCII Table" << std::endl;
-	while(max) {
-	std::cout << "Max (0 to quit): ";
-	std::cin >> max;
 	char numbers[max];
 	for(int i = 0; i < max; i++) {
 		numbers[i] = (char) (i+48);
@@ -17,6 +12,17 @@ int main(void)
 			std::cout << std::endl;	
 		}
 	}
+
+}
+
+int main(void)
+{
+	int max = 1;
+	std::cout << "Generade ASCII Table" << std::endl;
+	while(max) {
+		std::cout << "Max (0 to quit): ";
+		std::cin >> max;
+		ascii(max);
 	}
 	std::cout << std::endl << "Bye bye!" << std::endl;
 }
