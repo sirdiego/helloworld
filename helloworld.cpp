@@ -18,7 +18,7 @@ void ascii(int max)
 int main(void)
 {
 	int max = 1;
-	std::cout << "Generade ASCII Table" << std::endl;
+	std::cout << "Generate ASCII Table" << std::endl;
 	while(max) {
 		std::cout << "Max (0 to quit): ";
 		std::cin >> max;
