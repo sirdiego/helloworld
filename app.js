@@ -8,6 +8,11 @@ new Vue({
 			'Task 2'
 		]
 	},
+	watch: {
+		task: function () {
+			this.add();
+		}
+	},
 	computed: {
 		tasksCount: function () {
 			return this.tasks.length;
@@ -18,7 +23,9 @@ new Vue({
 			this.count++;
 		},
 		add: function () {
-			this.tasks.push(this.task);
+			if(this.task.length > 3) {
+				this.tasks.push(this.task);
+			}
 		},
 		remove: function (task) {
 			this.tasks.$remove(task);

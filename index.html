@@ -8,7 +8,7 @@
 		<p>Like button</p>
 		<button @click="like">{{ count }}</button>
 		<p>Tasks<span v-if="tasksCount"> ({{ tasksCount }})</span></p>
-		<input type="text" v-model="task" /><button type="submit" @click="add">Add</button>
+		<input type="text" v-model="task" debounce="400" />
 		<ul>
 			<li v-for="task in tasks" track-by="$index" @click="remove(task)">{{ task }}</li>
 		</ul>
