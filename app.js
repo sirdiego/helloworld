@@ -1,49 +1,27 @@
 new Vue({
-	el: '#app',
+	el: '#vuejs',
 	data: {
+		count: 10,
 		task: '',
 		tasks: [
-			{ body: 'Task 1', completed: false }, 
-			{ body: 'Task 2', completed: false },
-			{ body: 'Task 3', completed: false }
+			'Task 1',
+			'Task 2'
 		]
 	},
 	computed: {
-		countOpen: function () {
-			var result = 0;
-			for(var i=0;i<this.tasks.length;i++) {
-				if(!this.tasks[i].completed) {
-					result++;
-				}
-			}
-			return result;
-		},
-		countCompleted: function () {
-			var result = 0;
-			for(var i=0;i<this.tasks.length;i++) {
-				if(this.tasks[i].completed) {
-					result++;
-				}
-			}
-			return result;
-		},
-		count: function () {
+		tasksCount: function () {
 			return this.tasks.length;
 		}
 	},
 	methods: {
-		remove: function (task) {
-			this.tasks.$remove(task);
+		like: function () {
+			this.count++;
 		},
 		add: function () {
-			this.tasks.push({
-				body: this.task,
-				completed: false
-			});
-			this.task = '';
+			this.tasks.push(this.task);
 		},
-		complete: function (task) {
-			task.completed = true;
+		remove: function (task) {
+			this.tasks.$remove(task);
 		}
 	}
 });

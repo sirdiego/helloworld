@@ -1,38 +1,19 @@
 <!DOCTYPE>
 <html>
 <head>
-<title>Tasks</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<style>
-.group {
-	position: relative;
-}
-.button {
-	position: absolute;
-	right: 1em;
-}
-</style>
+	<title>Vue.js</title>
 </head>
 <body>
-<div class="container" id="app">
-<h1>Todo</h1>
-<h2>Tasks <span v-if="countOpen">({{ countOpen }})</span></h2>
-<p v-if="!countOpen">Happy Day! No Tasks.</p>
-<ul class="list-group group">
-	<li class="list-group-item" v-for="task in tasks | filterBy false in 'completed'" track-by="$index">{{ task.body }} <button class="button" @click="complete(task)">Complete</button></li>
-</ul>
-<form @submit.prevent="add">
-<input type="text" placeholder="Task" v-model="task">
-<button>Add</button>
-</form>
-<div v-if="countCompleted">
-<h2>Closed <span v-if="countCompleted">({{ countCompleted }})</span></h2>
-<ul class="list-group group">
-	<li class="list-group-item" v-for="task in tasks | filterBy true in 'completed' | orderBy '$key' -1" track-by="$index">{{ task.body }} <button class="button" @click="remove(task)">Remove</button></li>
-</ul>
-</div>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.10/vue.js"></script>
-<script src="app.js"></script>
+	<div id="vuejs">
+		<p>Like button</p>
+		<button @click="like">{{ count }}</button>
+		<p>Tasks<span v-if="tasksCount"> ({{ tasksCount }})</span></p>
+		<input type="text" v-model="task" /><button type="submit" @click="add">Add</button>
+		<ul>
+			<li v-for="task in tasks" track-by="$index" @click="remove(task)">{{ task }}</li>
+		</ul>
+	</div>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.11/vue.min.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>
